@@ -1,6 +1,9 @@
-# require 'httpclient'
+require 'httpclient'
 require "active_support"
 require "active_support/core_ext"
+
+require 'net/http'
+require 'openssl'
 
 class MsteamsWebhook::Message
 	def initialize(text, title=nil)
@@ -73,20 +76,14 @@ class MsteamsWebhook::Message
 		}
 	end
 
-    def send(url=nil, async=false)
-        url = url || MsteamsWebhook::default_url
-		begin
-			client = HTTPClient.new
-			client.ssl_config.cert_store.set_default_paths
-			client.ssl_config.ssl_version = :auto
-			if async
-				client.post_async url, getJson
-			else
-				client.post url, getJson
-			end
-		rescue Exception => e
-			Rails.logger.warn("cannot connect to #{url}")
-			Rails.logger.warn(e)
-		end
+    def send(url, async=true)
+        client = HTTPClient.new
+        client.ssl_config.cert_store.set_default_paths
+        client.ssl_config.ssl_version = :auto
+        if async
+            client.post_async url, to_json
+        else
+            client.post url, to_json
+        end
 	end
 end

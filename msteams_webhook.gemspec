@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Ruby gem builded for send messages to Microsoft Teams.}
   spec.description   = %q{Ruby gem builded for send messages to Microsoft Teams.}
-  spec.homepage      = "https://github.com/eduardolagares/msteams-webhook"
+  spec.homepage      = "https://github.com/eduardolagares/msteams_webhook"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -36,4 +36,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "airborne", "~> 0.2.13"
+
+  spec.add_dependency "httpclient", "~> 2.8.3"
 end

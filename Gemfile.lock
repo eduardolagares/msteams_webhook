@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     msteams_webhook (0.1.0)
+      httpclient (~> 2.8.3)
 
 GEM
   remote: https://rubygems.org/
@@ -23,6 +24,7 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
+    httpclient (2.8.3)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
     mime-types (3.1)

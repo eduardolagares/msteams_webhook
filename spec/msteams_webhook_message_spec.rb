@@ -1,6 +1,10 @@
 RSpec.describe MsteamsWebhook::Message do
   
-  
+    context 'send a message' do
+        message = MsteamsWebhook::Message.new 'Texto teste', 'Mensagem teste'
+        message.send 'portal.al.go.leg.br'
+    end
+
     context 'validate #as_json structure' do
         it "basic structure" do
 
