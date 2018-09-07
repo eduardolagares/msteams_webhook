@@ -22,9 +22,11 @@ Or install it yourself as:
 
 ### Sending a message
 
+```
 url = 'https://yourwebhookendpoint/'
 m = MsteamsWebhook::Message.new 'Hello MicrosoftTeams', 'Microsoft Teams Webhook Gem'
 m.send url
+```
 
 ## Development
 
